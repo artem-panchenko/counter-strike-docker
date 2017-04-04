@@ -1,0 +1,21 @@
+Docker image for Half-Life Dedicated Server
+
+Build an image:
+
+ make build
+
+Launch Counter-Strike 1.6 server:
+
+ docker run -it -p 27020:27015/udp --name cs hlds:alpha -console
+
+Add admin:
+
+ amx_addadmin "STEAM_0:1:123456789" "abcdefghijklmnopqrstu"
+
+Stop the server:
+
+ docker stop cs
+
+Remove the server:
+
+ docker rm cs
