@@ -14,8 +14,9 @@ EXECUTABLE="/opt/hlds/hlds_run"
 GAME="${GAME:-cstrike}"
 MAXPLAYERS="${MAXPLAYERS:-32}"
 START_MAP="${START_MAP:-de_dust2}"
+SERVER_NAME="${SERVER_NAME:-Counter-Strike 1.6 Server}"
 
-OPTIONS=( "-game" "${GAME}" "+maxplayers" "${MAXPLAYERS}" "+map" "${START_MAP}")
+OPTIONS=( "-game" "${GAME}" "+maxplayers" "${MAXPLAYERS}" "+map" "${START_MAP}" "+hostname" "\"${SERVER_NAME}\"")
 
 if [ -z "${RESTART_ON_FAIL}" ]; then
     OPTIONS+=('-norestart')

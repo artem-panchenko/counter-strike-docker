@@ -21,6 +21,9 @@ RUN ln -s /opt/steam/ /opt/hlds/steamcmd
 ADD files/steam_appid.txt /opt/hlds/steam_appid.txt
 ADD hlds_run.sh /bin/hlds_run.sh
 
+# Add default config
+ADD files/server.cfg /opt/hlds/cstrike/server.cfg
+
 # Add maps
 ADD maps/* /opt/hlds/cstrike/maps/
 
