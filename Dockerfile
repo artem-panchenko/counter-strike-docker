@@ -21,6 +21,9 @@ RUN ln -s /opt/steam/ /opt/hlds/steamcmd
 ADD files/steam_appid.txt /opt/hlds/steam_appid.txt
 ADD hlds_run.sh /bin/hlds_run.sh
 
+# Add maps
+ADD maps/* /opt/hlds/cstrike/maps/
+
 # Install metamod
 RUN mkdir -p /opt/hlds/cstrike/addons/metamod/dlls
 RUN curl -sqL "http://prdownloads.sourceforge.net/metamod/metamod-$metamod_version-linux.tar.gz?download" | tar -C /opt/hlds/cstrike/addons/metamod/dlls -zxvf -
