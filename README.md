@@ -31,3 +31,9 @@
 ```
  docker rm cs
 ```
+
+### Use image from [Docker Hub](https://hub.docker.com/r/hlds/server/):
+
+```
+ $ docker run -d -p 27020:27015/udp -e START_MAP=de_inferno -e ADMIN_STEAM=0:1:1234566 -e SERVER_NAME="My Server" --name cs hlds/server:alpha +log
+```
