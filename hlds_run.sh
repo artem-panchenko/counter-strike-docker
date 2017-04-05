@@ -5,7 +5,10 @@ set -axe
 CONFIG_FILE="/opt/hlds/startup.cfg"
 
 if [ -r "${CONFIG_FILE}" ]; then
+    # TODO: make config save/restore mechanism more solid
+    set +e
     source "${CONFIG_FILE}"
+    set -e
 fi
 
 EXTRA_OPTIONS="${@}"
@@ -26,6 +29,6 @@ if [ -n "${ADMIN_STEAM}" ]; then
     echo "\"STEAM_${ADMIN_STEAM}\" \"\"  \"abcdefghijklmnopqrstu\" \"ce\"" >> "/opt/hlds/cstrike/addons/amxmodx/configs/users.ini"
 fi
 
-env > "${CONFIG_FILE}"
+set > "${CONFIG_FILE}"
 
 exec "${EXECUTABLE}" "${OPTIONS[@]}" ${EXTRA_OPTIONS}
