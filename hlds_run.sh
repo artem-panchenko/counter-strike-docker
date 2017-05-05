@@ -7,11 +7,12 @@ CONFIG_FILE="/opt/hlds/startup.cfg"
 if [ -r "${CONFIG_FILE}" ]; then
     # TODO: make config save/restore mechanism more solid
     set +e
+    # shellcheck source=/dev/null
     source "${CONFIG_FILE}"
     set -e
 fi
 
-EXTRA_OPTIONS="${@}"
+EXTRA_OPTIONS=( "$@" )
 
 EXECUTABLE="/opt/hlds/hlds_run"
 GAME="${GAME:-cstrike}"
@@ -31,4 +32,4 @@ fi
 
 set > "${CONFIG_FILE}"
 
-exec "${EXECUTABLE}" "${OPTIONS[@]}" ${EXTRA_OPTIONS}
+exec "${EXECUTABLE}" "${OPTIONS[@]}" "${EXTRA_OPTIONS[@]}"
