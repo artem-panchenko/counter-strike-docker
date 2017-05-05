@@ -16,7 +16,7 @@ RUN mkdir -p /opt/steam && cd /opt/steam && \
 # Install HLDS
 RUN mkdir -p /opt/hlds
 RUN /opt/steam/steamcmd.sh +login $steam_user $steam_password +force_install_dir /opt/hlds +app_update 90 validate +quit
-RUN mkdir ~/.steam && ln -s /opt/hlds ~/.steam/sdk32
+RUN mkdir -p ~/.steam && ln -s /opt/hlds ~/.steam/sdk32
 RUN ln -s /opt/steam/ /opt/hlds/steamcmd
 ADD files/steam_appid.txt /opt/hlds/steam_appid.txt
 ADD hlds_run.sh /bin/hlds_run.sh
