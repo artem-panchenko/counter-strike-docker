@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/artem-panchenko/counter-strike-docker.svg?branch=master)](https://travis-ci.org/artem-panchenko/counter-strike-docker)
+[![License Apache 2.0](https://goo.gl/joRzTI)](https://github.com/artem-panchenko/counter-strike-docker/blob/master/LICENSE)
+
 ![Half-Life Logo](http://files.gamebanana.com/img/ico/sprays/51f5acee815f0.png)
 
 # Docker image for Half-Life Dedicated Server
