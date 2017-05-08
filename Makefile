@@ -1,7 +1,7 @@
 
 # Build options
-IMAGE_NAME="hlds"
-IMAGE_TAG="alpha"
+IMAGE_NAME?="hlds"
+IMAGE_TAG?="alpha"
 
 STEAM_USER?="anonymous"
 STEAM_PASSWORD?=""
@@ -51,4 +51,4 @@ test-clean: test-stop-server
 
 .PHONY: clean
 clean: test-clean
-	docker rmi $(IMAGE_NAME):$(IMAGE_TAG)
+	-docker rmi $(IMAGE_NAME):$(IMAGE_TAG)
