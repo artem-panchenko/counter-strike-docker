@@ -5,6 +5,13 @@ services:
 script:
  - make build
  - make test
- - docker ps
- - netstat -lunp
- - make clean
+after_success:
+ - docker login -u="${DOCKER_USERNAME}" -p="${DOCKER_PASSWORD}"
+ - if [ "${TRAVIS_PULL_REQUEST_BRANCH}" ]; then
+    DOCKER_PUBLISH_TAG="${TRAVIS_PULL_REQUEST_BRANCH}" make publish;
+   elif [ "${TRAVIS_TAG}" ]; then
+    DOCKER_PUBLISH_TAG="${TRAVIS_TAG}" make publish;
+    DOCKER_PUBLISH_TAG=latest make publish;
+   else
+    DOCKER_PUBLISH_TAG="${TRAVIS_BRANCH}" make publish;
+   fi

@@ -8,6 +8,10 @@ STEAM_PASSWORD?=""
 
 DOCKER_NO_CACHE?="false"
 
+# Publish options
+DOCKER_PUBLISH_NAME?="hlds/server"
+DOCKER_PUBLISH_TAG?=$(IMAGE_TAG)
+
 # Test tools
 SHELLCHECK_IMAGE?="koalaman/shellcheck:latest"
 TEST_CONTAINER_NAME?="test_hlds_auto"
@@ -52,3 +56,8 @@ test-clean: test-stop-server
 .PHONY: clean
 clean: test-clean
 	-docker rmi $(IMAGE_NAME):$(IMAGE_TAG)
+
+.PHONY: publish
+publish:
+	docker tag $(IMAGE_NAME):$(IMAGE_TAG) $(DOCKER_PUBLISH_NAME):$(DOCKER_PUBLISH_TAG)
+	docker push $(DOCKER_PUBLISH_NAME):$(DOCKER_PUBLISH_TAG)
