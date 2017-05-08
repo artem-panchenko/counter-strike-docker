@@ -5,6 +5,4 @@ services:
 script:
  - make build
  - make test
- - docker ps
- - netstat -lunp
  - make clean
