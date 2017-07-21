@@ -8,7 +8,7 @@ import socket
 
 
 address = os.environ.get('HLDS_ADDRESS', '127.0.0.1')
-port = os.environ.get('HLDS_PORT', 27111)
+port = int(os.environ.get('HLDS_PORT', 27111))
 
 server_name = os.environ.get('HLDS_NAME', 'Test auto')
 map_name = os.environ.get('HLDS_MAP', 'de_dust2')
